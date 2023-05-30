@@ -12,6 +12,9 @@ namespace generatorHasel
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+
+            //CharacterSet fullSetOfChars = new CharacterSet(true, true, true, true, true, true, true, false, new List<char> { }, new List<char> { });
+
         }
     }
 }
