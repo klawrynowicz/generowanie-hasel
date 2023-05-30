@@ -9,9 +9,9 @@ namespace generatorHasel
     internal class CharacterSet
     {
         private bool
-            ifLetterCase = true,        // abc...
-            ifUpperCase = true,         // ABC...
-            ifNumbers = true,           // 012...
+            ifLetterCase = false,       // abc...
+            ifUpperCase = false,        // ABC...
+            ifNumbers = false,          // 012...
             ifSymbols = false,          // !@#...
             ifSpace = false,            // ' '
             ifLetterPlCase = false,     // ąćę...
@@ -19,8 +19,8 @@ namespace generatorHasel
             ifSpecificSymbols = false,  // ~`
             ifExcludeSimilarChars = false; // 0oOiI1l|'`;
 
-        private List<char> includeChar;
-        private List<char> excludeChar;
+        private List<char> includeChar = new List<char> { };
+        private List<char> excludeChar = new List<char> { };
 
         private List<char> letterCase = new List<char>()
             { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
@@ -42,6 +42,8 @@ namespace generatorHasel
 
         private List<char> characterSet = new List<char>();
 
+        public int NumbOfChar { get { return characterSet.Count; } }
+
         public CharacterSet(bool ifLetterCase, bool ifUpperCase, bool ifNumbers, bool ifSymbols, bool ifSpace, bool ifPlLetters, bool ifSpecificSymbols, bool ifExcludeSimilarChars, List<char> includeChar, List<char> excludeChar)
         {
             this.ifLetterCase = ifLetterCase;
@@ -59,7 +61,7 @@ namespace generatorHasel
             this.excludeChar = excludeChar;
 
             createListChars();
-            //characterSet.ElementAt(0);
+            if (characterSet.Any() == false) MessageBox.Show("Nie wybrano żadnych znaków!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void createListChars()
@@ -80,7 +82,7 @@ namespace generatorHasel
 
         private void include(List<char> includeCharList)
         {
-            foreach (char item in includeCharList) { if (characterSet.IndexOf(item) != -1) characterSet.Add(item); }
+            foreach (char item in includeCharList) { if (characterSet.IndexOf(item) == -1) { characterSet.Add(item); } }
         }
 
         private void exclude(List<char> excludeCharList)
@@ -89,9 +91,16 @@ namespace generatorHasel
             foreach (char item in excludeCharList) { characterSet.Remove(item); }
         }
 
-        private bool ifThisCharIsInList(char znak)
+        public string display()
         {
-            return true;
-            }
+            return String.Join(", ", characterSet);
+        }
+        
+        public char drawASign()
+        {
+            return characterSet.ElementAt(
+                new Random().Next(0, characterSet.Count - 1)
+                );
+        }
     }
 }
