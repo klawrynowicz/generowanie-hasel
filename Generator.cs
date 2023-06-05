@@ -9,58 +9,41 @@ namespace generatorHasel
 {
     internal class Generator
     {
+        private List<Pass> passList = new List<Pass>() { };
+        public List<Pass> PassList { get { return passList; } }
+        
         private CharacterSet characterSet;
         private int numbOfPass = 0;
         private int lengthOfPass = 0;
-        private List<string> passList = new List<string>() { };
 
-        public Generator(CharacterSet characterSet, int numbOfPass, int lengthOfPass) 
+        private const int minLengthOfPass = 5;
+        private const int minNumberOfCharAvailable = 5;
+
+        public Generator(CharacterSet characterSet, int lengthOfPass, int numbOfPass) 
         {
             this.characterSet = characterSet;
-            this.numbOfPass = numbOfPass;
             this.lengthOfPass = lengthOfPass;
+            this.numbOfPass = numbOfPass;
 
-            generateResult();
+            if (this.characterSet.Any() == false) MessageBox.Show("Nie wybrano żadnych znaków!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (this.characterSet.NumbOfChar < minNumberOfCharAvailable) MessageBox.Show($"Zbyt mała liczba dostępnych znaków. Jest obecnie {characterSet.NumbOfChar}, a minimalna wartość wynosi: {minNumberOfCharAvailable}!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (this.lengthOfPass < minLengthOfPass) MessageBox.Show($"Błąd! Próba generowania zbyt krótkiego hasła! Wybrano długość hasła {lengthOfPass}, a minimalna dłogość wynosi {minLengthOfPass}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else generateResult();
         }
 
         private void generateResult()
         {
             for (int i = 0; i < numbOfPass; i++)
             {
-                passList.Add(generateOnePass());
+                passList.Add(
+                    new Pass(characterSet, lengthOfPass)
+                );
             }
         }
 
-        private string generateOnePass()
+        public string passListToString()
         {
-            List<char> password = new List<char>() { };
-
-            for (uint i = 0; i < lengthOfPass; i++)
-            {
-                char drawnChar = characterSet.drawASign();
-                if (isTheFirstOrTheLastPositionInPass(i) == true && drawnChar == ' ')
-                {
-                    while (true)
-                    {
-                        drawnChar = characterSet.drawASign();
-                        if (drawnChar == ' ') continue;
-                        else break;
-                    }
-                }
-                password.Add(drawnChar);
-            }
-            return String.Join("", password);
-        }
-
-        private bool isTheFirstOrTheLastPositionInPass(uint i)
-        {
-            if (i == 0 || i == (lengthOfPass - 1)) return true;
-            else return false;
-        }
-
-        public string display()
-        {
-            return String.Join("\n", passList);
+            return String.Join("\r\n", passList);
         }
     }
 }

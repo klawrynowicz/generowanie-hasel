@@ -8,99 +8,60 @@ namespace generatorHasel
 {
     internal class CharacterSet
     {
-        private bool
-            ifLetterCase = false,       // abc...
-            ifUpperCase = false,        // ABC...
-            ifNumbers = false,          // 012...
-            ifSymbols = false,          // !@#...
-            ifSpace = false,            // ' '
-            ifLetterPlCase = false,     // ąćę...
-            ifUpperPlCase = false,      // ĄĆĘ...
-            ifSpecificSymbols = false,  // ~`
-            ifExcludeSimilarChars = false; // 0oOiI1l|'`;
-
-        private List<char> includeChar = new List<char> { };
-        private List<char> excludeChar = new List<char> { };
-
-        private List<char> letterCase = new List<char>()
-            { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-        private List<char> upperCase = new List<char>()
-            { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
-        private List<char> numbers = new List<char>()
-            { '0', '1' ,'2', '3', '4', '5', '6', '7', '8', '9' };
-        private List<char> symbols = new List<char>()
-            { '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', '(', ')', '[', ']', '{', '}', '"', '\'', ',', '.', '/', '\\', '|', ':', ';', '<', '>', '?' };
-        private char space = ' ';
-        private List<char> letterPlCase = new List<char>()
-            { 'ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż' };
-        private List<char> upperPlCase = new List<char>()
-            { 'Ą', 'Ć', 'Ę', 'Ł', 'Ń', 'Ó', 'Ś', 'Ź', 'Ż' };
-        private List<char> specificSymbols = new List<char>()
-            { '~', '`' };
-        private List<char> similarChars = new List<char>()
-            { '0', 'o', 'O', 'i', 'I', '1', 'l', '|', '\'', '`', ';'};
 
         private List<char> characterSet = new List<char>();
 
+        public List<char> getCharacterSet {  get { return characterSet; } }
+
         public int NumbOfChar { get { return characterSet.Count; } }
 
-        public CharacterSet(bool ifLetterCase, bool ifUpperCase, bool ifNumbers, bool ifSymbols, bool ifSpace, bool ifPlLetters, bool ifSpecificSymbols, bool ifExcludeSimilarChars, List<char> includeChar, List<char> excludeChar)
+        public CharacterSet(List<char> characterSet)
         {
-            this.ifLetterCase = ifLetterCase;
-            this.ifUpperCase = ifUpperCase;
-            this.ifNumbers = ifNumbers;
-            this.ifSymbols = ifSymbols;
-            this.ifSpace = ifSpace;
-            this.ifLetterPlCase = (ifPlLetters == true && ifLetterCase == true) ? true : false;
-            this.ifUpperPlCase = (ifPlLetters == true && ifUpperCase == true) ? true : false;
-            if (ifPlLetters == true && ifLetterCase == false && ifUpperCase == false) {this.ifLetterPlCase = true; this.ifUpperPlCase = true; }
-            this.ifSpecificSymbols = ifSpecificSymbols;
-            this.ifExcludeSimilarChars = ifExcludeSimilarChars;
-
-            this.includeChar = includeChar;
-            this.excludeChar = excludeChar;
-
-            createListChars();
-            if (characterSet.Any() == false) MessageBox.Show("Nie wybrano żadnych znaków!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.characterSet = characterSet;
         }
 
-        private void createListChars()
+        public void include(CharacterSet includeCharList)
+        // This method adds only those items that DO NOT appear in the List<char> characterSet 
         {
-            if (ifLetterCase == true) characterSet.AddRange(letterCase);
-            if (ifUpperCase == true) characterSet.AddRange(upperCase);
-            if (ifNumbers == true) characterSet.AddRange(numbers);
-            if (ifSymbols == true) characterSet.AddRange(symbols);
-            if (ifSpace == true) characterSet.Add(space);
-            if (ifLetterPlCase == true) characterSet.AddRange(letterPlCase);
-            if (ifUpperPlCase == true) characterSet.AddRange(upperPlCase);
-            if (ifSpecificSymbols == true) characterSet.AddRange(specificSymbols);
-            if (ifExcludeSimilarChars == true) exclude(similarChars);
-
-            if (includeChar.Any() == true) include(includeChar);
-            if (excludeChar.Any() == true) exclude(excludeChar);
+            foreach (char item in includeCharList.getCharacterSet) { if (characterSet.IndexOf(item) == -1) { characterSet.Add(item); } }
         }
 
-        private void include(List<char> includeCharList)
+        public void exclude(CharacterSet excludeCharList)
+        // This method removes the FIRST occurrence of a specific object from the List<char> characterSet
         {
-            foreach (char item in includeCharList) { if (characterSet.IndexOf(item) == -1) { characterSet.Add(item); } }
-        }
-
-        private void exclude(List<char> excludeCharList)
-        // This method removes the first occurrence of a specific object from the List<char> characterSet
-        {
-            foreach (char item in excludeCharList) { characterSet.Remove(item); }
+            foreach (char item in excludeCharList.getCharacterSet) { characterSet.Remove(item); }
         }
 
         public string display()
         {
             return String.Join(", ", characterSet);
         }
+        // This method returns string with all char in List<char> characterSet a comma-separated
         
         public char drawASign()
+        // This method draw a sign from the List<char> characterSet
         {
             return characterSet.ElementAt(
-                new Random().Next(0, characterSet.Count - 1)
+                new Random().Next(0, characterSet.Count)
                 );
+        }
+
+        public bool Any()
+        {
+            if (characterSet.Any() == true) return true;
+            else return false;
+        }
+
+        public void AddRange(CharacterSet includedCharacterSet)
+        // This method add ALL items from includedCharacterSet to List<char> characterSet
+        {
+            characterSet.AddRange(includedCharacterSet.getCharacterSet);
+        }
+
+        public void Add(char includedChar)
+        // This method add ONCE char from includedChar to List<char> characterSet
+        {
+            characterSet.Add(includedChar);
         }
     }
 }
