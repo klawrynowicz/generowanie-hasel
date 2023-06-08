@@ -17,10 +17,5 @@ namespace generatorHasel
             InitializeComponent();
             textBox1.Text = generatedPass;
         }
-
-        //public void think (List<Pass> passList)
-        //{
-        //    
-        //}
     }
 }

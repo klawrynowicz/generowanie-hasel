@@ -36,10 +36,27 @@
             button1 = new Button();
             button2 = new Button();
             tabPage_generateOnePass = new TabPage();
+            groupBox6 = new GroupBox();
+            tabPage2_textBox_generatedPass = new TextBox();
+            tabPage2_button_generatePass = new Button();
+            groupBox5 = new GroupBox();
+            tabPage2_numericUpDown_lengthOfPass = new NumericUpDown();
+            tabPage2_trackBar_lengthOfPass = new TrackBar();
+            groupBox4 = new GroupBox();
+            tabPage2_checkBox_ifExcludeSpecialChar = new CheckBox();
+            tabPage2_checkBox_ifIncludeSpecialChar = new CheckBox();
+            tabPage2_checkBox_ifSpecificSymbols = new CheckBox();
+            tabPage2_checkBox_ifPlLetters = new CheckBox();
+            tabPage2_checkBox_ifSpace = new CheckBox();
+            tabPage2_checkBox_ifSymbols = new CheckBox();
+            tabPage2_checkBox_ifExcludeSimilarChars = new CheckBox();
+            tabPage2_checkBox_ifNumbers = new CheckBox();
+            tabPage2_checkBox_ifUpperCase = new CheckBox();
+            tabPage2_checkBox_ifLetterCase = new CheckBox();
+            tabPage2_textBox_excludedChar = new TextBox();
+            tabPage2_textBox_includedChar = new TextBox();
             tabPage_generatePasswds = new TabPage();
             tabPage3_button_generatePass = new Button();
-            tabPage3_textBox_excludedChar = new TextBox();
-            tabPage3_textBox_includedChar = new TextBox();
             label1 = new Label();
             tabPage3_numericUpDown_numbOfPass = new NumericUpDown();
             groupBox3 = new GroupBox();
@@ -47,7 +64,9 @@
             tabPage3_trackBar_lengthOfPass = new TrackBar();
             groupBox2 = new GroupBox();
             tabPage3_checkBox_ifExcludeSpecialChar = new CheckBox();
+            tabPage3_textBox_excludedChar = new TextBox();
             tabPage3_checkBox_ifIncludeSpecialChar = new CheckBox();
+            tabPage3_textBox_includedChar = new TextBox();
             tabPage3_checkBox_ifSpecificSymbols = new CheckBox();
             tabPage3_checkBox_ifPlLetters = new CheckBox();
             tabPage3_checkBox_ifSpace = new CheckBox();
@@ -64,6 +83,12 @@
             tabControl1.SuspendLayout();
             tabPage_home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
+            tabPage_generateOnePass.SuspendLayout();
+            groupBox6.SuspendLayout();
+            groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tabPage2_numericUpDown_lengthOfPass).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tabPage2_trackBar_lengthOfPass).BeginInit();
+            groupBox4.SuspendLayout();
             tabPage_generatePasswds.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tabPage3_numericUpDown_numbOfPass).BeginInit();
             groupBox3.SuspendLayout();
@@ -152,6 +177,10 @@
             // 
             // tabPage_generateOnePass
             // 
+            tabPage_generateOnePass.Controls.Add(groupBox6);
+            tabPage_generateOnePass.Controls.Add(tabPage2_button_generatePass);
+            tabPage_generateOnePass.Controls.Add(groupBox5);
+            tabPage_generateOnePass.Controls.Add(groupBox4);
             tabPage_generateOnePass.Location = new Point(4, 29);
             tabPage_generateOnePass.Name = "tabPage_generateOnePass";
             tabPage_generateOnePass.Padding = new Padding(3);
@@ -160,11 +189,210 @@
             tabPage_generateOnePass.Text = "tabPage2";
             tabPage_generateOnePass.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(tabPage2_textBox_generatedPass);
+            groupBox6.Location = new Point(26, 513);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(417, 79);
+            groupBox6.TabIndex = 18;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Twoje hasło";
+            // 
+            // tabPage2_textBox_generatedPass
+            // 
+            tabPage2_textBox_generatedPass.Location = new Point(18, 35);
+            tabPage2_textBox_generatedPass.Name = "tabPage2_textBox_generatedPass";
+            tabPage2_textBox_generatedPass.ReadOnly = true;
+            tabPage2_textBox_generatedPass.Size = new Size(387, 27);
+            tabPage2_textBox_generatedPass.TabIndex = 18;
+            tabPage2_textBox_generatedPass.TextAlign = HorizontalAlignment.Center;
+            // 
+            // tabPage2_button_generatePass
+            // 
+            tabPage2_button_generatePass.Location = new Point(138, 667);
+            tabPage2_button_generatePass.Name = "tabPage2_button_generatePass";
+            tabPage2_button_generatePass.Size = new Size(166, 60);
+            tabPage2_button_generatePass.TabIndex = 16;
+            tabPage2_button_generatePass.Text = "Generuj";
+            tabPage2_button_generatePass.UseVisualStyleBackColor = true;
+            tabPage2_button_generatePass.Click += tabPage2_button_generatePass_Click;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(tabPage2_numericUpDown_lengthOfPass);
+            groupBox5.Controls.Add(tabPage2_trackBar_lengthOfPass);
+            groupBox5.Location = new Point(26, 381);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(418, 102);
+            groupBox5.TabIndex = 11;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "długość haseł";
+            // 
+            // tabPage2_numericUpDown_lengthOfPass
+            // 
+            tabPage2_numericUpDown_lengthOfPass.Location = new Point(349, 33);
+            tabPage2_numericUpDown_lengthOfPass.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
+            tabPage2_numericUpDown_lengthOfPass.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            tabPage2_numericUpDown_lengthOfPass.Name = "tabPage2_numericUpDown_lengthOfPass";
+            tabPage2_numericUpDown_lengthOfPass.Size = new Size(50, 27);
+            tabPage2_numericUpDown_lengthOfPass.TabIndex = 8;
+            tabPage2_numericUpDown_lengthOfPass.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            tabPage2_numericUpDown_lengthOfPass.ValueChanged += tabPage2_numericUpDown_lengthOfPass_ValueChanged;
+            // 
+            // tabPage2_trackBar_lengthOfPass
+            // 
+            tabPage2_trackBar_lengthOfPass.Location = new Point(23, 33);
+            tabPage2_trackBar_lengthOfPass.Maximum = 50;
+            tabPage2_trackBar_lengthOfPass.Minimum = 1;
+            tabPage2_trackBar_lengthOfPass.Name = "tabPage2_trackBar_lengthOfPass";
+            tabPage2_trackBar_lengthOfPass.Size = new Size(296, 56);
+            tabPage2_trackBar_lengthOfPass.TabIndex = 7;
+            tabPage2_trackBar_lengthOfPass.Value = 1;
+            tabPage2_trackBar_lengthOfPass.Scroll += tabPage2_trackBar_lengthOfPass_Scroll;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(tabPage2_checkBox_ifExcludeSpecialChar);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifIncludeSpecialChar);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifSpecificSymbols);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifPlLetters);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifSpace);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifSymbols);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifExcludeSimilarChars);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifNumbers);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifUpperCase);
+            groupBox4.Controls.Add(tabPage2_checkBox_ifLetterCase);
+            groupBox4.Controls.Add(tabPage2_textBox_excludedChar);
+            groupBox4.Controls.Add(tabPage2_textBox_includedChar);
+            groupBox4.Location = new Point(26, 36);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(418, 317);
+            groupBox4.TabIndex = 0;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "opcje hasła";
+            // 
+            // tabPage2_checkBox_ifExcludeSpecialChar
+            // 
+            tabPage2_checkBox_ifExcludeSpecialChar.AutoSize = true;
+            tabPage2_checkBox_ifExcludeSpecialChar.Location = new Point(213, 242);
+            tabPage2_checkBox_ifExcludeSpecialChar.Name = "tabPage2_checkBox_ifExcludeSpecialChar";
+            tabPage2_checkBox_ifExcludeSpecialChar.Size = new Size(197, 24);
+            tabPage2_checkBox_ifExcludeSpecialChar.TabIndex = 39;
+            tabPage2_checkBox_ifExcludeSpecialChar.Text = "wyklucz szczególne znaki";
+            tabPage2_checkBox_ifExcludeSpecialChar.UseVisualStyleBackColor = true;
+            tabPage2_checkBox_ifExcludeSpecialChar.CheckedChanged += tabPage2_checkBox_ifExcludeSpecialChar_CheckedChanged;
+            // 
+            // tabPage2_checkBox_ifIncludeSpecialChar
+            // 
+            tabPage2_checkBox_ifIncludeSpecialChar.AutoSize = true;
+            tabPage2_checkBox_ifIncludeSpecialChar.Location = new Point(17, 242);
+            tabPage2_checkBox_ifIncludeSpecialChar.Name = "tabPage2_checkBox_ifIncludeSpecialChar";
+            tabPage2_checkBox_ifIncludeSpecialChar.Size = new Size(190, 24);
+            tabPage2_checkBox_ifIncludeSpecialChar.TabIndex = 37;
+            tabPage2_checkBox_ifIncludeSpecialChar.Text = "dołącz szczególne znaki";
+            tabPage2_checkBox_ifIncludeSpecialChar.UseVisualStyleBackColor = true;
+            tabPage2_checkBox_ifIncludeSpecialChar.CheckedChanged += tabPage2_checkBox_ifIncludeSpecialChar_CheckedChanged;
+            // 
+            // tabPage2_checkBox_ifSpecificSymbols
+            // 
+            tabPage2_checkBox_ifSpecificSymbols.AutoSize = true;
+            tabPage2_checkBox_ifSpecificSymbols.Location = new Point(17, 180);
+            tabPage2_checkBox_ifSpecificSymbols.Name = "tabPage2_checkBox_ifSpecificSymbols";
+            tabPage2_checkBox_ifSpecificSymbols.Size = new Size(173, 24);
+            tabPage2_checkBox_ifSpecificSymbols.TabIndex = 35;
+            tabPage2_checkBox_ifSpecificSymbols.Text = "specyficzne znaki [`~]";
+            tabPage2_checkBox_ifSpecificSymbols.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_checkBox_ifPlLetters
+            // 
+            tabPage2_checkBox_ifPlLetters.AutoSize = true;
+            tabPage2_checkBox_ifPlLetters.Location = new Point(213, 139);
+            tabPage2_checkBox_ifPlLetters.Name = "tabPage2_checkBox_ifPlLetters";
+            tabPage2_checkBox_ifPlLetters.Size = new Size(164, 24);
+            tabPage2_checkBox_ifPlLetters.TabIndex = 34;
+            tabPage2_checkBox_ifPlLetters.Text = "polskie znaki [ąĆĘ...]";
+            tabPage2_checkBox_ifPlLetters.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_checkBox_ifSpace
+            // 
+            tabPage2_checkBox_ifSpace.AutoSize = true;
+            tabPage2_checkBox_ifSpace.Location = new Point(17, 139);
+            tabPage2_checkBox_ifSpace.Name = "tabPage2_checkBox_ifSpace";
+            tabPage2_checkBox_ifSpace.Size = new Size(91, 24);
+            tabPage2_checkBox_ifSpace.TabIndex = 33;
+            tabPage2_checkBox_ifSpace.Text = "spacja [ ]";
+            tabPage2_checkBox_ifSpace.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_checkBox_ifSymbols
+            // 
+            tabPage2_checkBox_ifSymbols.AutoSize = true;
+            tabPage2_checkBox_ifSymbols.Location = new Point(213, 98);
+            tabPage2_checkBox_ifSymbols.Name = "tabPage2_checkBox_ifSymbols";
+            tabPage2_checkBox_ifSymbols.Size = new Size(184, 24);
+            tabPage2_checkBox_ifSymbols.TabIndex = 32;
+            tabPage2_checkBox_ifSymbols.Text = "znaki specjalne [-_!@...]";
+            tabPage2_checkBox_ifSymbols.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_checkBox_ifExcludeSimilarChars
+            // 
+            tabPage2_checkBox_ifExcludeSimilarChars.AutoSize = true;
+            tabPage2_checkBox_ifExcludeSimilarChars.Location = new Point(213, 180);
+            tabPage2_checkBox_ifExcludeSimilarChars.Name = "tabPage2_checkBox_ifExcludeSimilarChars";
+            tabPage2_checkBox_ifExcludeSimilarChars.Size = new Size(185, 24);
+            tabPage2_checkBox_ifExcludeSimilarChars.TabIndex = 31;
+            tabPage2_checkBox_ifExcludeSimilarChars.Text = "wyklucz podobne znaki";
+            tabPage2_checkBox_ifExcludeSimilarChars.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_checkBox_ifNumbers
+            // 
+            tabPage2_checkBox_ifNumbers.AutoSize = true;
+            tabPage2_checkBox_ifNumbers.Location = new Point(17, 98);
+            tabPage2_checkBox_ifNumbers.Name = "tabPage2_checkBox_ifNumbers";
+            tabPage2_checkBox_ifNumbers.Size = new Size(109, 24);
+            tabPage2_checkBox_ifNumbers.TabIndex = 30;
+            tabPage2_checkBox_ifNumbers.Text = "cyfry [123...]";
+            tabPage2_checkBox_ifNumbers.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_checkBox_ifUpperCase
+            // 
+            tabPage2_checkBox_ifUpperCase.AutoSize = true;
+            tabPage2_checkBox_ifUpperCase.Location = new Point(213, 57);
+            tabPage2_checkBox_ifUpperCase.Name = "tabPage2_checkBox_ifUpperCase";
+            tabPage2_checkBox_ifUpperCase.Size = new Size(151, 24);
+            tabPage2_checkBox_ifUpperCase.TabIndex = 29;
+            tabPage2_checkBox_ifUpperCase.Text = "duże litery [ABC...]";
+            tabPage2_checkBox_ifUpperCase.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_checkBox_ifLetterCase
+            // 
+            tabPage2_checkBox_ifLetterCase.AutoSize = true;
+            tabPage2_checkBox_ifLetterCase.Location = new Point(17, 57);
+            tabPage2_checkBox_ifLetterCase.Name = "tabPage2_checkBox_ifLetterCase";
+            tabPage2_checkBox_ifLetterCase.Size = new Size(148, 24);
+            tabPage2_checkBox_ifLetterCase.TabIndex = 28;
+            tabPage2_checkBox_ifLetterCase.Text = "małe litery [abc...]";
+            tabPage2_checkBox_ifLetterCase.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_textBox_excludedChar
+            // 
+            tabPage2_textBox_excludedChar.Location = new Point(213, 272);
+            tabPage2_textBox_excludedChar.Name = "tabPage2_textBox_excludedChar";
+            tabPage2_textBox_excludedChar.Size = new Size(194, 27);
+            tabPage2_textBox_excludedChar.TabIndex = 38;
+            tabPage2_textBox_excludedChar.Visible = false;
+            // 
+            // tabPage2_textBox_includedChar
+            // 
+            tabPage2_textBox_includedChar.Location = new Point(17, 272);
+            tabPage2_textBox_includedChar.Name = "tabPage2_textBox_includedChar";
+            tabPage2_textBox_includedChar.Size = new Size(176, 27);
+            tabPage2_textBox_includedChar.TabIndex = 36;
+            tabPage2_textBox_includedChar.Visible = false;
+            // 
             // tabPage_generatePasswds
             // 
             tabPage_generatePasswds.Controls.Add(tabPage3_button_generatePass);
-            tabPage_generatePasswds.Controls.Add(tabPage3_textBox_excludedChar);
-            tabPage_generatePasswds.Controls.Add(tabPage3_textBox_includedChar);
             tabPage_generatePasswds.Controls.Add(label1);
             tabPage_generatePasswds.Controls.Add(tabPage3_numericUpDown_numbOfPass);
             tabPage_generatePasswds.Controls.Add(groupBox3);
@@ -186,23 +414,7 @@
             tabPage3_button_generatePass.TabIndex = 15;
             tabPage3_button_generatePass.Text = "Generuj";
             tabPage3_button_generatePass.UseVisualStyleBackColor = true;
-            tabPage3_button_generatePass.Click += button_generatePass_Click;
-            // 
-            // tabPage3_textBox_excludedChar
-            // 
-            tabPage3_textBox_excludedChar.Location = new Point(239, 430);
-            tabPage3_textBox_excludedChar.Name = "tabPage3_textBox_excludedChar";
-            tabPage3_textBox_excludedChar.Size = new Size(194, 27);
-            tabPage3_textBox_excludedChar.TabIndex = 14;
-            tabPage3_textBox_excludedChar.Visible = false;
-            // 
-            // tabPage3_textBox_includedChar
-            // 
-            tabPage3_textBox_includedChar.Location = new Point(39, 430);
-            tabPage3_textBox_includedChar.Name = "tabPage3_textBox_includedChar";
-            tabPage3_textBox_includedChar.Size = new Size(176, 27);
-            tabPage3_textBox_includedChar.TabIndex = 13;
-            tabPage3_textBox_includedChar.Visible = false;
+            tabPage3_button_generatePass.Click += tabPage3_button_generatePass_Click;
             // 
             // label1
             // 
@@ -257,7 +469,9 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(tabPage3_checkBox_ifExcludeSpecialChar);
+            groupBox2.Controls.Add(tabPage3_textBox_excludedChar);
             groupBox2.Controls.Add(tabPage3_checkBox_ifIncludeSpecialChar);
+            groupBox2.Controls.Add(tabPage3_textBox_includedChar);
             groupBox2.Controls.Add(tabPage3_checkBox_ifSpecificSymbols);
             groupBox2.Controls.Add(tabPage3_checkBox_ifPlLetters);
             groupBox2.Controls.Add(tabPage3_checkBox_ifSpace);
@@ -268,7 +482,7 @@
             groupBox2.Controls.Add(tabPage3_checkBox_ifLetterCase);
             groupBox2.Location = new Point(26, 130);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(418, 348);
+            groupBox2.Size = new Size(418, 317);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "opcje hasła";
@@ -276,7 +490,7 @@
             // tabPage3_checkBox_ifExcludeSpecialChar
             // 
             tabPage3_checkBox_ifExcludeSpecialChar.AutoSize = true;
-            tabPage3_checkBox_ifExcludeSpecialChar.Location = new Point(215, 266);
+            tabPage3_checkBox_ifExcludeSpecialChar.Location = new Point(213, 242);
             tabPage3_checkBox_ifExcludeSpecialChar.Name = "tabPage3_checkBox_ifExcludeSpecialChar";
             tabPage3_checkBox_ifExcludeSpecialChar.Size = new Size(197, 24);
             tabPage3_checkBox_ifExcludeSpecialChar.TabIndex = 15;
@@ -284,10 +498,18 @@
             tabPage3_checkBox_ifExcludeSpecialChar.UseVisualStyleBackColor = true;
             tabPage3_checkBox_ifExcludeSpecialChar.CheckedChanged += tabPage3_checkBox_ifExcludeSpecialChar_CheckedChanged;
             // 
+            // tabPage3_textBox_excludedChar
+            // 
+            tabPage3_textBox_excludedChar.Location = new Point(213, 272);
+            tabPage3_textBox_excludedChar.Name = "tabPage3_textBox_excludedChar";
+            tabPage3_textBox_excludedChar.Size = new Size(194, 27);
+            tabPage3_textBox_excludedChar.TabIndex = 14;
+            tabPage3_textBox_excludedChar.Visible = false;
+            // 
             // tabPage3_checkBox_ifIncludeSpecialChar
             // 
             tabPage3_checkBox_ifIncludeSpecialChar.AutoSize = true;
-            tabPage3_checkBox_ifIncludeSpecialChar.Location = new Point(15, 268);
+            tabPage3_checkBox_ifIncludeSpecialChar.Location = new Point(17, 242);
             tabPage3_checkBox_ifIncludeSpecialChar.Name = "tabPage3_checkBox_ifIncludeSpecialChar";
             tabPage3_checkBox_ifIncludeSpecialChar.Size = new Size(190, 24);
             tabPage3_checkBox_ifIncludeSpecialChar.TabIndex = 14;
@@ -295,10 +517,18 @@
             tabPage3_checkBox_ifIncludeSpecialChar.UseVisualStyleBackColor = true;
             tabPage3_checkBox_ifIncludeSpecialChar.CheckedChanged += tabPage3_checkBox_ifIncludeSpecialChar_CheckedChanged;
             // 
+            // tabPage3_textBox_includedChar
+            // 
+            tabPage3_textBox_includedChar.Location = new Point(17, 272);
+            tabPage3_textBox_includedChar.Name = "tabPage3_textBox_includedChar";
+            tabPage3_textBox_includedChar.Size = new Size(176, 27);
+            tabPage3_textBox_includedChar.TabIndex = 13;
+            tabPage3_textBox_includedChar.Visible = false;
+            // 
             // tabPage3_checkBox_ifSpecificSymbols
             // 
             tabPage3_checkBox_ifSpecificSymbols.AutoSize = true;
-            tabPage3_checkBox_ifSpecificSymbols.Location = new Point(17, 193);
+            tabPage3_checkBox_ifSpecificSymbols.Location = new Point(17, 180);
             tabPage3_checkBox_ifSpecificSymbols.Name = "tabPage3_checkBox_ifSpecificSymbols";
             tabPage3_checkBox_ifSpecificSymbols.Size = new Size(173, 24);
             tabPage3_checkBox_ifSpecificSymbols.TabIndex = 13;
@@ -308,7 +538,7 @@
             // tabPage3_checkBox_ifPlLetters
             // 
             tabPage3_checkBox_ifPlLetters.AutoSize = true;
-            tabPage3_checkBox_ifPlLetters.Location = new Point(215, 149);
+            tabPage3_checkBox_ifPlLetters.Location = new Point(213, 139);
             tabPage3_checkBox_ifPlLetters.Name = "tabPage3_checkBox_ifPlLetters";
             tabPage3_checkBox_ifPlLetters.Size = new Size(164, 24);
             tabPage3_checkBox_ifPlLetters.TabIndex = 12;
@@ -318,7 +548,7 @@
             // tabPage3_checkBox_ifSpace
             // 
             tabPage3_checkBox_ifSpace.AutoSize = true;
-            tabPage3_checkBox_ifSpace.Location = new Point(16, 149);
+            tabPage3_checkBox_ifSpace.Location = new Point(17, 139);
             tabPage3_checkBox_ifSpace.Name = "tabPage3_checkBox_ifSpace";
             tabPage3_checkBox_ifSpace.Size = new Size(91, 24);
             tabPage3_checkBox_ifSpace.TabIndex = 11;
@@ -328,7 +558,7 @@
             // tabPage3_checkBox_ifSymbols
             // 
             tabPage3_checkBox_ifSymbols.AutoSize = true;
-            tabPage3_checkBox_ifSymbols.Location = new Point(215, 98);
+            tabPage3_checkBox_ifSymbols.Location = new Point(213, 98);
             tabPage3_checkBox_ifSymbols.Name = "tabPage3_checkBox_ifSymbols";
             tabPage3_checkBox_ifSymbols.Size = new Size(184, 24);
             tabPage3_checkBox_ifSymbols.TabIndex = 10;
@@ -338,7 +568,7 @@
             // tabPage3_checkBox_ifExcludeSimilarChars
             // 
             tabPage3_checkBox_ifExcludeSimilarChars.AutoSize = true;
-            tabPage3_checkBox_ifExcludeSimilarChars.Location = new Point(215, 193);
+            tabPage3_checkBox_ifExcludeSimilarChars.Location = new Point(213, 180);
             tabPage3_checkBox_ifExcludeSimilarChars.Name = "tabPage3_checkBox_ifExcludeSimilarChars";
             tabPage3_checkBox_ifExcludeSimilarChars.Size = new Size(185, 24);
             tabPage3_checkBox_ifExcludeSimilarChars.TabIndex = 9;
@@ -348,7 +578,7 @@
             // tabPage3_checkBox_ifNumbers
             // 
             tabPage3_checkBox_ifNumbers.AutoSize = true;
-            tabPage3_checkBox_ifNumbers.Location = new Point(17, 100);
+            tabPage3_checkBox_ifNumbers.Location = new Point(17, 98);
             tabPage3_checkBox_ifNumbers.Name = "tabPage3_checkBox_ifNumbers";
             tabPage3_checkBox_ifNumbers.Size = new Size(109, 24);
             tabPage3_checkBox_ifNumbers.TabIndex = 8;
@@ -358,7 +588,7 @@
             // tabPage3_checkBox_ifUpperCase
             // 
             tabPage3_checkBox_ifUpperCase.AutoSize = true;
-            tabPage3_checkBox_ifUpperCase.Location = new Point(215, 57);
+            tabPage3_checkBox_ifUpperCase.Location = new Point(213, 57);
             tabPage3_checkBox_ifUpperCase.Name = "tabPage3_checkBox_ifUpperCase";
             tabPage3_checkBox_ifUpperCase.Size = new Size(151, 24);
             tabPage3_checkBox_ifUpperCase.TabIndex = 2;
@@ -379,7 +609,7 @@
             // 
             groupBox1.Controls.Add(tabPage3_radioButton2);
             groupBox1.Controls.Add(tabPage3_radioButton1);
-            groupBox1.Location = new Point(56, 30);
+            groupBox1.Location = new Point(68, 30);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(317, 69);
             groupBox1.TabIndex = 0;
@@ -438,6 +668,15 @@
             tabPage_home.ResumeLayout(false);
             tabPage_home.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
+            tabPage_generateOnePass.ResumeLayout(false);
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tabPage2_numericUpDown_lengthOfPass).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tabPage2_trackBar_lengthOfPass).EndInit();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             tabPage_generatePasswds.ResumeLayout(false);
             tabPage_generatePasswds.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)tabPage3_numericUpDown_numbOfPass).EndInit();
@@ -486,5 +725,24 @@
         private CheckBox tabPage3_checkBox_ifIncludeSpecialChar;
         private Button tabPage3_button_generatePass;
         private SaveFileDialog tabPage3_saveFileDialog;
+        private GroupBox groupBox4;
+        private CheckBox tabPage2_checkBox_ifExcludeSpecialChar;
+        private CheckBox tabPage2_checkBox_ifIncludeSpecialChar;
+        private CheckBox tabPage2_checkBox_ifSpecificSymbols;
+        private CheckBox tabPage2_checkBox_ifPlLetters;
+        private CheckBox tabPage2_checkBox_ifSpace;
+        private CheckBox tabPage2_checkBox_ifSymbols;
+        private CheckBox tabPage2_checkBox_ifExcludeSimilarChars;
+        private CheckBox tabPage2_checkBox_ifNumbers;
+        private CheckBox tabPage2_checkBox_ifUpperCase;
+        private CheckBox tabPage2_checkBox_ifLetterCase;
+        private TextBox tabPage2_textBox_excludedChar;
+        private TextBox tabPage2_textBox_includedChar;
+        private GroupBox groupBox5;
+        private NumericUpDown tabPage2_numericUpDown_lengthOfPass;
+        private TrackBar tabPage2_trackBar_lengthOfPass;
+        private GroupBox groupBox6;
+        private TextBox tabPage2_textBox_generatedPass;
+        private Button tabPage2_button_generatePass;
     }
 }
