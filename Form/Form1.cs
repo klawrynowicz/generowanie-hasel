@@ -1,3 +1,4 @@
+using System.IO;
 using System.Reflection.Emit;
 using System.Windows.Forms;
 
@@ -170,7 +171,6 @@ namespace generatorHasel
                 excludeChar_list = null;
             }
             #endregion
-
             Generator generator = new(characterSet, (int)tabPage2_numericUpDown_lengthOfPass.Value, 1);
             sendPasswords(generator.passListToString(), false);
         }
@@ -249,6 +249,14 @@ namespace generatorHasel
         }
         #endregion
 
+        #region tabPage4 - about
+        #endregion
+
+        private void tabPageX_pictureBox_back_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectTab(tabPage_home);
+        }
+
         private void sendPasswords(string passList, bool isManyPass)
         {
             if (isManyPass == true)
@@ -260,7 +268,13 @@ namespace generatorHasel
                 }
                 else if (tabPage3_radioButton2.Checked == true)
                 {
-                    tabPage3_saveFileDialog.ShowDialog();
+                    if (tabPage3_saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        StreamWriter writer = new StreamWriter(tabPage3_saveFileDialog.OpenFile());
+                        writer.Write(passList);
+                        writer.Dispose();
+                        writer.Close();
+                    }
                 }
                 else { MessageBox.Show("Nie wybrano miejsca dok¹d chcesz wygenerowaæ has³a!", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }

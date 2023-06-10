@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabControl1 = new TabControl();
             tabPage_home = new TabPage();
             logo = new PictureBox();
@@ -36,6 +37,7 @@
             button1 = new Button();
             button2 = new Button();
             tabPage_generateOnePass = new TabPage();
+            tabPage2_pictureBox_back = new PictureBox();
             groupBox6 = new GroupBox();
             tabPage2_textBox_generatedPass = new TextBox();
             tabPage2_button_generatePass = new Button();
@@ -56,6 +58,7 @@
             tabPage2_textBox_excludedChar = new TextBox();
             tabPage2_textBox_includedChar = new TextBox();
             tabPage_generatePasswds = new TabPage();
+            tabPage3_pictureBox_back = new PictureBox();
             tabPage3_button_generatePass = new Button();
             label1 = new Label();
             tabPage3_numericUpDown_numbOfPass = new NumericUpDown();
@@ -79,23 +82,28 @@
             tabPage3_radioButton2 = new RadioButton();
             tabPage3_radioButton1 = new RadioButton();
             tabPage_about = new TabPage();
+            tabPage4_pictureBox_back = new PictureBox();
             tabPage3_saveFileDialog = new SaveFileDialog();
             tabControl1.SuspendLayout();
             tabPage_home.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             tabPage_generateOnePass.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tabPage2_pictureBox_back).BeginInit();
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tabPage2_numericUpDown_lengthOfPass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tabPage2_trackBar_lengthOfPass).BeginInit();
             groupBox4.SuspendLayout();
             tabPage_generatePasswds.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tabPage3_pictureBox_back).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tabPage3_numericUpDown_numbOfPass).BeginInit();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tabPage3_numericUpDown_lengthOfPass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tabPage3_trackBar_lengthOfPass).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            tabPage_about.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tabPage4_pictureBox_back).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -177,6 +185,7 @@
             // 
             // tabPage_generateOnePass
             // 
+            tabPage_generateOnePass.Controls.Add(tabPage2_pictureBox_back);
             tabPage_generateOnePass.Controls.Add(groupBox6);
             tabPage_generateOnePass.Controls.Add(tabPage2_button_generatePass);
             tabPage_generateOnePass.Controls.Add(groupBox5);
@@ -188,6 +197,17 @@
             tabPage_generateOnePass.TabIndex = 1;
             tabPage_generateOnePass.Text = "tabPage2";
             tabPage_generateOnePass.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2_pictureBox_back
+            // 
+            tabPage2_pictureBox_back.Image = Properties.Resources.back;
+            tabPage2_pictureBox_back.Location = new Point(26, 710);
+            tabPage2_pictureBox_back.Name = "tabPage2_pictureBox_back";
+            tabPage2_pictureBox_back.Size = new Size(40, 40);
+            tabPage2_pictureBox_back.SizeMode = PictureBoxSizeMode.StretchImage;
+            tabPage2_pictureBox_back.TabIndex = 19;
+            tabPage2_pictureBox_back.TabStop = false;
+            tabPage2_pictureBox_back.Click += tabPageX_pictureBox_back_Click;
             // 
             // groupBox6
             // 
@@ -392,6 +412,7 @@
             // 
             // tabPage_generatePasswds
             // 
+            tabPage_generatePasswds.Controls.Add(tabPage3_pictureBox_back);
             tabPage_generatePasswds.Controls.Add(tabPage3_button_generatePass);
             tabPage_generatePasswds.Controls.Add(label1);
             tabPage_generatePasswds.Controls.Add(tabPage3_numericUpDown_numbOfPass);
@@ -405,6 +426,17 @@
             tabPage_generatePasswds.TabIndex = 2;
             tabPage_generatePasswds.Text = "tabPage3";
             tabPage_generatePasswds.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3_pictureBox_back
+            // 
+            tabPage3_pictureBox_back.Image = Properties.Resources.back;
+            tabPage3_pictureBox_back.Location = new Point(26, 710);
+            tabPage3_pictureBox_back.Name = "tabPage3_pictureBox_back";
+            tabPage3_pictureBox_back.Size = new Size(40, 40);
+            tabPage3_pictureBox_back.SizeMode = PictureBoxSizeMode.StretchImage;
+            tabPage3_pictureBox_back.TabIndex = 20;
+            tabPage3_pictureBox_back.TabStop = false;
+            tabPage3_pictureBox_back.Click += tabPageX_pictureBox_back_Click;
             // 
             // tabPage3_button_generatePass
             // 
@@ -640,6 +672,7 @@
             // 
             // tabPage_about
             // 
+            tabPage_about.Controls.Add(tabPage4_pictureBox_back);
             tabPage_about.Location = new Point(4, 29);
             tabPage_about.Name = "tabPage_about";
             tabPage_about.Padding = new Padding(3);
@@ -648,9 +681,22 @@
             tabPage_about.Text = "tabPage4";
             tabPage_about.UseVisualStyleBackColor = true;
             // 
+            // tabPage4_pictureBox_back
+            // 
+            tabPage4_pictureBox_back.Image = Properties.Resources.back;
+            tabPage4_pictureBox_back.Location = new Point(26, 710);
+            tabPage4_pictureBox_back.Name = "tabPage4_pictureBox_back";
+            tabPage4_pictureBox_back.Size = new Size(40, 40);
+            tabPage4_pictureBox_back.SizeMode = PictureBoxSizeMode.StretchImage;
+            tabPage4_pictureBox_back.TabIndex = 21;
+            tabPage4_pictureBox_back.TabStop = false;
+            tabPage4_pictureBox_back.Click += tabPageX_pictureBox_back_Click;
+            // 
             // tabPage3_saveFileDialog
             // 
-            tabPage3_saveFileDialog.FileName = "passwords.txt";
+            tabPage3_saveFileDialog.DefaultExt = "txt";
+            tabPage3_saveFileDialog.FileName = "passwords";
+            tabPage3_saveFileDialog.Filter = "Dokumenty tekstowe (*.txt)| *.txt";
             // 
             // Form1
             // 
@@ -659,16 +705,18 @@
             ClientSize = new Size(474, 785);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Generator haseł";
             Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             tabPage_home.ResumeLayout(false);
             tabPage_home.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             tabPage_generateOnePass.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)tabPage2_pictureBox_back).EndInit();
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
             groupBox5.ResumeLayout(false);
@@ -679,6 +727,7 @@
             groupBox4.PerformLayout();
             tabPage_generatePasswds.ResumeLayout(false);
             tabPage_generatePasswds.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)tabPage3_pictureBox_back).EndInit();
             ((System.ComponentModel.ISupportInitialize)tabPage3_numericUpDown_numbOfPass).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
@@ -688,6 +737,8 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            tabPage_about.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)tabPage4_pictureBox_back).EndInit();
             ResumeLayout(false);
         }
 
@@ -744,5 +795,8 @@
         private GroupBox groupBox6;
         private TextBox tabPage2_textBox_generatedPass;
         private Button tabPage2_button_generatePass;
+        private PictureBox tabPage2_pictureBox_back;
+        private PictureBox tabPage3_pictureBox_back;
+        private PictureBox tabPage4_pictureBox_back;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             textBox1 = new TextBox();
             SuspendLayout();
             // 
@@ -49,9 +50,10 @@
             ClientSize = new Size(474, 785);
             Controls.Add(textBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Form2";
-            Text = "Form2";
+            Text = "Generator haseł - wyniki";
             ResumeLayout(false);
             PerformLayout();
         }
